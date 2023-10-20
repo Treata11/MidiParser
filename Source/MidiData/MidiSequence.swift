@@ -108,8 +108,13 @@ extension MidiSequence {
             return FileFormat(rawValue: UInt8(header.format.val)) ?? .type1
         }
         
-        let header = data.withUnsafeBytes {
-            UnsafeRawBufferPointer(start: $0, count: Int(sizeof(HeaderChunk.self))).load(as: HeaderChunk.self)
+        // FIXME: Deprecation Notice 'withUnsafeBytes' is deprecated
+//        let header = data.withUnsafeBytes {
+//            UnsafeRawBufferPointer(start: $0, count: Int(sizeof(HeaderChunk.self))).load(as: HeaderChunk.self)
+//        }
+        let header = data.withUnsafeBytes { (bufferPointer: UnsafeRawBufferPointer) -> HeaderChunk in
+            let headerPointer = bufferPointer.baseAddress!.assumingMemoryBound(to: HeaderChunk.self)
+            return headerPointer.pointee
         }
       
         fileFormat = getFileFormat(fromHeader: header)

@@ -18,7 +18,7 @@ public final class MidiNoteTrack: MidiTrack {
     let musicTrack: MusicTrack
     let iterator: EventIterator
     
-    private(set) var notes: [MidiNote] = [] {
+    public private(set) var notes: [MidiNote] = [] {
         didSet {
             if isReload {
                 return
