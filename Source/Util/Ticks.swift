@@ -18,6 +18,14 @@ extension Double {
     
 }
 
+extension Float32 {
+    
+    public func round(places decimalPlaces: Int) -> Float32 {
+        let divisor = pow(10, Float32(decimalPlaces))
+        return (self * divisor).rounded() / divisor
+    }
+}
+
 public struct Milliseconds {
     static let inMinute = 60_000
     static let inSecond = 1_000

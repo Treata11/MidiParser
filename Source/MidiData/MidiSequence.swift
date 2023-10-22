@@ -109,13 +109,13 @@ extension MidiSequence {
         }
         
         // FIXME: Deprecation Notice 'withUnsafeBytes' is deprecated
-//        let header = data.withUnsafeBytes {
-//            UnsafeRawBufferPointer(start: $0, count: Int(sizeof(HeaderChunk.self))).load(as: HeaderChunk.self)
-//        }
-        let header = data.withUnsafeBytes { (bufferPointer: UnsafeRawBufferPointer) -> HeaderChunk in
-            let headerPointer = bufferPointer.baseAddress!.assumingMemoryBound(to: HeaderChunk.self)
-            return headerPointer.pointee
+        let header = data.withUnsafeBytes {
+            UnsafeRawBufferPointer(start: $0, count: Int(sizeof(HeaderChunk.self))).load(as: HeaderChunk.self)
         }
+//        let header = data.withUnsafeBytes { (bufferPointer: UnsafeRawBufferPointer) -> HeaderChunk in
+//            let headerPointer = bufferPointer.baseAddress!.assumingMemoryBound(to: HeaderChunk.self)
+//            return headerPointer.pointee
+//        }
       
         fileFormat = getFileFormat(fromHeader: header)
         let loadFlag = getLoadFlag(inFileFormat: fileFormat)
