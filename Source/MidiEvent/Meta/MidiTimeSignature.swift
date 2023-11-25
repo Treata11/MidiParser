@@ -9,7 +9,7 @@
 import AudioToolbox
 import Foundation
 
-public struct MidiTimeSignature: MetaEventProtocol {
+public struct MidiTimeSignature: MetaEventProtocol, Codable, Hashable {
     public let timeStamp: MusicTimeStamp
     // numerator / 2^denominator
     // ex.) 4/4 => numerator: 4, denominator: 2
