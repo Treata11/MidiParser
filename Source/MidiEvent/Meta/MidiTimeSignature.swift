@@ -20,6 +20,14 @@ public struct MidiTimeSignature: MetaEventProtocol, Codable, Hashable {
     /// number of notated 32nd-notes in a MIDI quarter-note
     public let bb: UInt8
     
+    init(timeStamp: MusicTimeStamp, numerator: UInt8, denominator: UInt8, cc: UInt8, bb: UInt8) {
+        self.timeStamp = timeStamp
+        self.numerator = numerator
+        self.denominator = denominator
+        self.cc = cc
+        self.bb = bb
+    }
+    
     var metaType: MetaEventType {
         return .timeSignature
     }
