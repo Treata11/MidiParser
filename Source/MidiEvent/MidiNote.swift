@@ -49,33 +49,16 @@ extension MidiNote {
 extension MidiNote: Identifiable {
     public var id: String {
         // Assuming a unique identifier based on the note's properties
-//        return "\(regularTempoTimeStamp)-\(note)-\(channel)"
         return "\(regularTempoTimeStamp)-\(note)"
     }
 }
 
 extension MidiNote: Equatable {}
-/*
-extension MidiNote: Equatable {
-    public static func == (lhs: MidiNote, rhs: MidiNote) -> Bool {
-        return lhs.regularTempoTimeStamp == rhs.regularTempoTimeStamp &&
-               lhs.regularDuration == rhs.regularDuration &&
-//               lhs.timeStamp == rhs.timeStamp &&
-//               lhs.duration == rhs.duration &&
-               lhs.note == rhs.note &&
-               lhs.velocity == rhs.velocity &&
-               lhs.channel == rhs.channel &&
-               lhs.releaseVelocity == rhs.releaseVelocity
-    }
-}
-*/
- 
+
 extension MidiNote: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(regularTempoTimeStamp)
         hasher.combine(regularDuration)
-//        hasher.combine(timeStamp)
-//        hasher.combine(duration)
         hasher.combine(note)
         hasher.combine(velocity)
         hasher.combine(channel)
