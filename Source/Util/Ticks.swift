@@ -31,11 +31,11 @@ public struct Milliseconds {
     static let inSecond = 1_000
     let value: Int
     
-    init(_ value: Int) {
+    public init(_ value: Int) {
         self.value = value
     }
     
-    init(_ value: Double) {
+    public init(_ value: Double) {
         let result = value * Double(Milliseconds.inSecond)
         self.value = Int(result.roundTo(places: 0))
     }

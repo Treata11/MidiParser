@@ -243,7 +243,6 @@
 				13C66B9820F3AB2300DD8D1D /* Source */,
 				13C66BB520F3ABD000DD8D1D /* Supporting Files */,
 				13C66B0C20F0B9AE00DD8D1D /* Tests */,
-				250232A5FBDB832E2B51CBB7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -370,13 +369,6 @@
 				13E83064226B0587009DD486 /* MidiParser-macOS.xcconfig */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		250232A5FBDB832E2B51CBB7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		E745FDFE22B97AA800077D24 /* Util */ = {

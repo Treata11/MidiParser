@@ -11,10 +11,21 @@ import Foundation
 public struct MidiTime {
     public let inSeconds: TimeInterval
     public let inTicks: Ticks
+    
+    public init(inSeconds: TimeInterval, inTicks: Ticks) {
+        self.inSeconds = inSeconds
+        self.inTicks = inTicks
+    }
 }
 
 public extension MidiTime {
-    static var empty: MidiTime {
+    public static var empty: MidiTime {
         return MidiTime(inSeconds: 0.0, inTicks: Ticks(0))
+    }
+}
+
+extension MidiTime: Equatable {
+    public static func == (lhs: MidiTime, rhs: MidiTime) -> Bool {
+        lhs.inSeconds == rhs.inSeconds
     }
 }
